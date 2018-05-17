@@ -23,6 +23,7 @@
 			<td>PENERBIT</td>
 			<td>TAHUN</td>
 			<td>PENULIS</td>
+			<td>AKSI</td>
 		</thead>
 		<tbody>
 
@@ -36,6 +37,7 @@
 				<td><?php echo $row['penerbit']; ?></td>
 				<td><?php echo $row['tahun']; ?></td>
 				<td><?php echo $row['penulis']; ?></td>
+				<td><a href="fungsi/delete.php?id=<?php echo $row['id_buku'];?>">Hapus</a></td>
 			</tr>
 
 			<?php 

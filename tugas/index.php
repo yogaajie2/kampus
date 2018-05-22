@@ -5,10 +5,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!--Flags CSS -->
+    <!-- Flags CSS -->
     <link rel="stylesheet" type="text/css" href="flags/css/flag-icon.css">
+    <!-- Google Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Main CSS -->
+    <style type="text/css">
+      h1, h2, h5, p, a {
+        font-family: 'Sunflower', sans-serif;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #808080;
+        text-decoration: none;
+      }
+    </style>
 
     <title>Daftar Pembalap MotoGP Musim 2018</title>
   </head>
@@ -22,57 +40,58 @@
       if (!$result) {
         echo "ERROR";
       }
+
+      $i = 0;
     ?>
 
     <div class="container">
-      <h1>Daftar Pembalap MotoGP Musim 2018</h1>
-
-      <?php while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
-
-      <div class="row">
-        <div class="col-md-4 px-5">
-          <img class="img-fluid" src="img/valentino-rossi.jpg" style="width: 100%; height: auto;">
-          <div class="row">
-            <div class="col d-flex justify-content-between">
-              <h1><span class="flag-icon flag-icon-<?php echo $row['kode_negara']; ?>"></span></h1>
-              <h1><?php echo $row['nomor']; ?></h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p><?php echo $row['nama']; ?></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 px-5">
-          <img class="img-fluid" src="img/valentino-rossi.jpg" style="width: 100%; height: auto;">
-          <div class="row">
-            <div class="col d-flex justify-content-between">
-              <h1><span class="flag-icon flag-icon-<?php echo $row['kode_negara']; ?>"></span></h1>
-              <h1><?php echo $row['nomor']; ?></h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p><?php echo $row['nama']; ?></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 px-5">
-          <img class="img-fluid" src="img/valentino-rossi.jpg" style="width: 100%; height: auto;">
-          <div class="row">
-            <div class="col d-flex justify-content-between">
-              <h1><span class="flag-icon flag-icon-<?php echo $row['kode_negara']; ?>"></span></h1>
-              <h1><?php echo $row['nomor']; ?></h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p><?php echo $row['nama']; ?></p>
-            </div>
-          </div>
+      <div class="row sticky-top py-3" style="background-color: #0d0d0d;">
+        <div class="col d-flex">
+          <h2 class="mr-auto" style="color: #fff;">Daftar Pembalap MotoGP Musim 2018</h2>
+          <form class="form-inline mr-3" action="#">
+            <input class="form-control mr-2" type="text" placeholder="Cari Data...">
+            <button class="btn btn-light" type="submit">Cari</button>
+          </form>
+          <form class="form-inline">
+            <button type="button" class="btn btn-light">Tambah Data</button>
+          </form>
         </div>
       </div>
+      <div class="row my-5">
+
+        <?php while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
+
+        <div class="col-md-4 px-5 border">
+          <a href="bio-pembalap.php?id=<?php echo $row['id']; ?>">
+            <img class="img-fluid" src="<?php echo $row['foto']; ?>" style="width: 100%; height: auto;">
+          </a>
+          <div class="row my-3">
+            <div class="col d-flex justify-content-between">
+              <h1><span class="flag-icon flag-icon-<?php echo $row['kode_negara']; ?>"></span></h1>
+              <h1 class="font-weight-bold"><?php echo $row['nomor']; ?></h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <a href="bio-pembalap.php?id=<?php echo $row['id']; ?>">
+                <p class="font-weight-bold"><?php echo $row['nama']; ?></p>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col d-flex my-3">
+              <button type="button" class="btn btn-outline-dark mr-auto">Ubah Data</button>
+              <button type="button" class="btn btn-outline-dark">Hapus Data</button>
+            </div>
+          </div>
+        </div>
+
+        <?php 
+          $i++;
+          if ($i % 3 == 0) {
+            echo '</div><div class="row my-5">';
+          }
+        ?>
 
       <?php } ?>
 
@@ -82,6 +101,6 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

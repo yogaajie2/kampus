@@ -56,9 +56,13 @@
             <div class="container">
               <div class="row my-3">
                 <div class="col d-flex justify-content-between">
-                  <button type="button" class="btn btn-light">Print Data</button>
+                  <a href="fungsi/print.php?id=<?php echo $row['id']; ?>">
+                    <button type="button" class="btn btn-light">Print Data</button>
+                  </a>
                   <button type="button" class="btn btn-light">Ubah Data</button>
-                  <button type="button" class="btn btn-light">Hapus Data</button>
+                  <a href="fungsi/delete.php?id=<?php echo $row['id']; ?>">
+                    <button type="button" class="btn btn-light">Hapus Data</button>
+                  </a>
                 </div>
               </div>
             </div>

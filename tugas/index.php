@@ -34,8 +34,9 @@
 
     <?php 
       include 'fungsi/koneksi.php';
+      include 'fungsi/cari.php';
 
-      $sql = "SELECT * FROM motogp";
+      $sql = "SELECT * FROM motogp WHERE negara LIKE '%$keyword%' OR nomor LIKE '%$keyword%' OR nama LIKE '%$keyword%' OR tim LIKE '%$keyword%' OR motor LIKE '%$keyword%'";
       $result = mysqli_query($koneksi, $sql);
       if (!$result) {
         echo "ERROR";
@@ -48,12 +49,14 @@
       <div class="row sticky-top py-3" style="background-color: #0d0d0d;">
         <div class="col d-flex">
           <h2 class="mr-auto" style="color: #fff;">Daftar Pembalap MotoGP Musim 2018</h2>
-          <form class="form-inline mr-3" action="#">
-            <input class="form-control mr-2" type="text" placeholder="Cari Data...">
+          <form class="form-inline mr-3" action="index.php">
+            <input class="form-control mr-2" type="text" name="cari" placeholder="Cari nama, nomor, tim, motor, negara">
             <button class="btn btn-light" type="submit">Cari</button>
           </form>
           <form class="form-inline">
-            <button type="button" class="btn btn-light">Tambah Data</button>
+            <a href="tambah-data.php">
+              <button type="button" class="btn btn-light">Tambah Data</button>
+            </a>
           </form>
         </div>
       </div>
@@ -81,7 +84,9 @@
           <div class="row">
             <div class="col d-flex my-3">
               <button type="button" class="btn btn-outline-dark mr-auto">Ubah Data</button>
-              <button type="button" class="btn btn-outline-dark">Hapus Data</button>
+              <a href="fungsi/delete.php?id=<?php echo $row['id']; ?>">
+                <button type="button" class="btn btn-outline-dark">Hapus Data</button>
+              </a>
             </div>
           </div>
         </div>

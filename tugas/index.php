@@ -83,7 +83,9 @@
           </div>
           <div class="row">
             <div class="col d-flex my-3">
-              <button type="button" class="btn btn-outline-dark mr-auto">Ubah Data</button>
+              <a class="mr-auto" href="ubah-data.php?id=<?php echo $row['id']; ?>">
+                <button type="button" class="btn btn-outline-dark">Ubah Data</button>
+              </a>
               <a href="fungsi/delete.php?id=<?php echo $row['id']; ?>">
                 <button type="button" class="btn btn-outline-dark">Hapus Data</button>
               </a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2018 at 09:02 PM
+-- Generation Time: May 30, 2018 at 05:52 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -76,6 +76,25 @@ INSERT INTO `motogp` (`id`, `negara`, `kode_negara`, `nomor`, `foto`, `nama`, `f
 (23, 'Spanyol', 'es', 93, 'img/rider/marc-marquez.jpg', 'Marc Marquez', 'img/motor/mm-93.jpg', 'Repsol Honda Team', 'Honda RC213V 2018', 'Cervera', '1993-02-17', 65, 169, 64, 6),
 (24, 'Spanyol', 'es', 99, 'img/rider/jorge-lorenzo.jpg', 'Jorge Lorenzo', 'img/motor/jl-99.jpg', 'Ducati Team', 'Ducati Desmosedici GP18', 'Palma de Mallorca', '1987-05-04', 65, 171, 65, 5);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -87,6 +106,12 @@ ALTER TABLE `motogp`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -94,7 +119,13 @@ ALTER TABLE `motogp`
 -- AUTO_INCREMENT for table `motogp`
 --
 ALTER TABLE `motogp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

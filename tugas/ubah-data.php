@@ -50,7 +50,7 @@
 				<form action="fungsi/update.php" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="id">ID</label>
-						<input type="text" class="form-control" name="id" id="id" value="<?php echo $row['id']; ?>">
+						<input type="text" class="form-control" name="id" id="id" value="<?php echo $row['id']; ?>" readonly>
 					</div>
 					<div class="form-group">
 						<label for="nama">Nama Pembalap</label>
@@ -102,11 +102,11 @@
 					</div>
 					<div class="form-group">
 						<label for="foto">Foto</label>
-						<input type="file" class="form-control" name="foto" id="foto">
+						<input type="file" class="form-control" name="foto" id="foto" value="<?php echo $row['foto']; ?>">
 					</div>
 					<div class="form-group">
 						<label for="foto-motor">Foto Motor</label>
-						<input type="file" class="form-control" name="foto-motor" id="foto-motor">
+						<input type="file" class="form-control" name="foto-motor" id="foto-motor" value="<?php echo $row['foto_motor']; ?>">
 					</div>
 					<button type="submit" class="btn btn-outline-dark">Ubah Data</button>
 				</form>

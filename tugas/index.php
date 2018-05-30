@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <!-- Main CSS -->
     <style type="text/css">
-      h1, h2, h5, p, a {
+      h1, h5, p, a {
         font-family: 'Sunflower', sans-serif;
       }
 
@@ -28,81 +28,54 @@
       }
     </style>
 
-    <title>Daftar Pembalap MotoGP Musim 2018</title>
-  </head>
-  <body>
-
     <?php 
       include 'fungsi/koneksi.php';
-      include 'fungsi/cari.php';
 
-      $sql = "SELECT * FROM motogp WHERE negara LIKE '%$keyword%' OR nomor LIKE '%$keyword%' OR nama LIKE '%$keyword%' OR tim LIKE '%$keyword%' OR motor LIKE '%$keyword%'";
+      $sql = "SELECT * FROM user";
       $result = mysqli_query($koneksi, $sql);
       if (!$result) {
         echo "ERROR";
       }
-
-      $i = 0;
     ?>
 
-    <div class="container">
-      <div class="row sticky-top py-3" style="background-color: #0d0d0d;">
-        <div class="col d-flex">
-          <h2 class="mr-auto" style="color: #fff;">Daftar Pembalap MotoGP Musim 2018</h2>
-          <form class="form-inline mr-3" action="index.php">
-            <input class="form-control mr-2" type="text" name="cari" placeholder="Cari nama, nomor, tim, motor, negara">
-            <button class="btn btn-light" type="submit">Cari</button>
-          </form>
-          <form class="form-inline">
-            <a href="tambah-data.php">
-              <button type="button" class="btn btn-light">Tambah Data</button>
-            </a>
-          </form>
+    <?php while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
+
+    <title>Daftar Pembalap MotoGP Musim 2018 | Login</title>
+  </head>
+  <body class="h-100">
+    <div class="container-fluid h-100">
+      <div class="container h-25 d-flex align-items-center justify-content-center">
+        <h1 class="display-4">Daftar Pembalap MotoGP Musim 2018</h1>
+      </div>
+      <div class="container h-50 d-flex align-items-center justify-content-center">
+        <div class="row border p-5">
+          <div class="col">
+            <h2 class="text-center mb-4">Login</h2>
+            <form action="fungsi/login.php" method="POST">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password">
+              </div>
+              <button type="submit" class="btn btn-block btn-dark">Login</button>
+            </form>
+          </div>
         </div>
       </div>
-      <div class="row my-5">
-
-        <?php while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
-
-        <div class="col-md-4 px-5 border">
-          <a href="bio-pembalap.php?id=<?php echo $row['id']; ?>">
-            <img class="img-fluid" src="<?php echo $row['foto']; ?>" style="width: 100%; height: auto;">
-          </a>
-          <div class="row my-3">
-            <div class="col d-flex justify-content-between">
-              <h1><span class="flag-icon flag-icon-<?php echo $row['kode_negara']; ?>"></span></h1>
-              <h1 class="font-weight-bold"><?php echo $row['nomor']; ?></h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <a href="bio-pembalap.php?id=<?php echo $row['id']; ?>">
-                <p class="font-weight-bold"><?php echo $row['nama']; ?></p>
-              </a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col d-flex my-3">
-              <a class="mr-auto" href="ubah-data.php?id=<?php echo $row['id']; ?>">
-                <button type="button" class="btn btn-outline-dark">Ubah Data</button>
-              </a>
-              <a href="fungsi/delete.php?id=<?php echo $row['id']; ?>">
-                <button type="button" class="btn btn-outline-dark">Hapus Data</button>
-              </a>
-            </div>
+      <div class="container h-25 d-flex align-items-center justify-content-center">
+        <div class="row">
+          <div class="col text-center">
+            <h2>Yoga Ajie Prasetya</h2>
+            <h2>1151500023</h2>
           </div>
         </div>
-
-        <?php 
-          $i++;
-          if ($i % 3 == 0) {
-            echo '</div><div class="row my-5">';
-          }
-        ?>
-
-      <?php } ?>
-
+      </div>
     </div>
+
+    <?php } ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

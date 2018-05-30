@@ -6,5 +6,5 @@
 	$sql = "DELETE FROM motogp WHERE id = '$id'";
 
 	$result = mysqli_query ($koneksi, $sql);
-	header("location:../index.php");
+	header("location:../home.php");
 ?>

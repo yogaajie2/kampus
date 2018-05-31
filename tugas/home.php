@@ -77,7 +77,7 @@
           <div class="row">
             <div class="col">
               <a href="bio-pembalap.php?id=<?php echo $row['id']; ?>">
-                <p class="font-weight-bold"><?php echo $row['nama']; ?></p>
+                <h3 class="font-weight-bold"><?php echo $row['nama']; ?></h3>
               </a>
             </div>
           </div>

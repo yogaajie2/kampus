@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <!-- Main CSS -->
     <style type="text/css">
-      h1, h5, p, a {
+      h1, h3, h4, h5, p, a {
         font-family: 'Sunflower', sans-serif;
       }
 
@@ -84,7 +84,7 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <h5 class="font-weight-bold"><?php echo $row['nama']; ?></h5>
+                  <h4 class="font-weight-bold"><?php echo $row['nama']; ?></h4>
                   <p class="font-weight-bold"><?php echo $row['tim']; ?></p>
                   <p><?php echo $row['motor']; ?></p>
                   <p><?php echo $row['tempat_lahir']; ?></p>

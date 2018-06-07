@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+    <?php
+      // Initialize the session
+      session_start();
+       
+      // If session variable is not set it will redirect to login page
+      if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+        header("location: /kampus/tugas/index.php");
+        exit;
+      }
+    ?>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,9 +65,14 @@
             <input class="form-control mr-2" type="text" name="cari" placeholder="Cari nama, nomor, tim, motor, negara">
             <button class="btn btn-light" type="submit">Cari</button>
           </form>
-          <form class="form-inline">
+          <form class="form-inline mr-3">
             <a href="tambah-data.php">
               <button type="button" class="btn btn-light">Tambah Data</button>
+            </a>
+          </form>
+          <form class="form-inline">
+            <a href="fungsi/logout.php">
+              <button type="button" class="btn btn-outline-light">Logout</button>
             </a>
           </form>
         </div>

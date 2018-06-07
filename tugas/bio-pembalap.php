@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+    <?php
+      // Initialize the session
+      session_start();
+       
+      // If session variable is not set it will redirect to login page
+      if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+        header("location: /kampus/tugas/index.php");
+        exit;
+      }
+    ?>
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

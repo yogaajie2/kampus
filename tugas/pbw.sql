@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 08:57 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Jun 08, 2018 at 08:58 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -94,7 +94,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_users`, `username`, `password`, `created_at`) VALUES
-(1, 'goy', '$2y$10$Q50VS2YQTCXAI1W1mABgPeMe1yy/U6Nn3O.SKGnI8v.bfiaPuiv0y', '2018-06-07 13:44:45');
+(1, 'goy', '$2y$10$Q50VS2YQTCXAI1W1mABgPeMe1yy/U6Nn3O.SKGnI8v.bfiaPuiv0y', '2018-06-07 13:44:45'),
+(2, 'admin', '$2y$10$ESTx/qe/5azJtHM46Id6p.Wfm4t9NmCuRKH/hGZzzF/Bw1HOY589q', '2018-06-09 01:25:08');
 
 --
 -- Indexes for dumped tables
@@ -121,13 +122,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `motogp`
 --
 ALTER TABLE `motogp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

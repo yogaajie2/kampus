@@ -113,11 +113,13 @@
 						<input type="text" class="form-control" name="kemenangan-kejuaraan" id="kemenangan-kejuaraan" value="<?php echo $row['kemenangan_kejuaraan']; ?>">
 					</div>
 					<div class="form-group">
-						<label for="foto">Foto</label>
+						<label for="foto">Foto</label><br>
+						<img class="img-fluid" src="<?php echo $row['foto']; ?>">
 						<input type="file" class="form-control" name="foto" id="foto" value="<?php echo $row['foto']; ?>">
 					</div>
 					<div class="form-group">
-						<label for="foto-motor">Foto Motor</label>
+						<label for="foto-motor">Foto Motor</label><br>
+						<img class="img-fluid" src="<?php echo $row['foto_motor']; ?>">
 						<input type="file" class="form-control" name="foto-motor" id="foto-motor" value="<?php echo $row['foto_motor']; ?>">
 					</div>
 					<button type="submit" class="btn btn-outline-dark">Ubah Data</button>
